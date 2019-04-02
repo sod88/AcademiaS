@@ -1,0 +1,12 @@
+<aura:component>
+
+    <aura:attribute type = "Camping_Item__c" name = "item"/>
+
+    Name: <lightning:outputField value="{!v.newItem.Name}"/> <br/>
+    Packed: <ui:outputCheckbox value="{!v.newItem.Packed__c}"/> <br/>
+    Price: <lightning:outputField value="{!v.newItem.Price__c}"/> <br/>
+    Quantity: <lightning:outputField value="{!v.newItem.Quantity__c}"/> <br/>
+
+
+    <lightning:button variant = "Neutral" label = "Packed" aura:id = "submitButton2" onclick = "{!c.pack}"/>
+</aura:component>	
