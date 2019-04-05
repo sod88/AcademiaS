@@ -1,0 +1,17 @@
+@isTest
+public class AccountManagerTest {
+  @isTest
+    private static void getAccountTest(){
+        Account acc = new Account(Name = 'Coca-Cola');
+        insert acc;
+        
+        RestRequest request = new RestRequest();
+        request.requestUri = '/services/apexrest/Accounts/' + acc.Id + '/contacts';
+        request.httpMethod = 'GET';
+        RestContext.request = request;
+        
+        Account account = AccountManager.getAccount();
+        
+        System.assert(account != null);
+    }
+}
