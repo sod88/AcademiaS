@@ -1,0 +1,6 @@
+public class NewCaseListController{
+    public List<Case> getNewCases(){
+        List<Case> cas = [SELECT ID, CaseNumber, Status FROM Case WHERE Status= 'New'];
+        return cas;
+    }
+}
