@@ -1,0 +1,6 @@
+public class ContactAndLeadSearch {
+    public static List<List<sObject>> searchContactsAndLeads(string busq){
+        List<List<sObject>> searchList = [FIND :busq IN ALL FIELDS RETURNING Contact(FirstName, LastName), Lead(FirstName, LastName)];
+        return searchList;
+    }
+}
