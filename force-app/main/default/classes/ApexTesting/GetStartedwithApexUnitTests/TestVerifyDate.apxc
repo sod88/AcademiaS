@@ -1,0 +1,7 @@
+@isTest
+public class TestVerifyDate {
+    public static testMethod void test(){
+       VerifyDate.CheckDates(System.today(),System.today().addDays(24));
+       VerifyDate.CheckDates(System.today(),System.today().addDays(34));
+    }
+}
