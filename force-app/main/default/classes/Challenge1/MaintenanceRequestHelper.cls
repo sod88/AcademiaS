@@ -1,11 +1,7 @@
 public with sharing class MaintenanceRequestHelper {
-    public MaintenanceRequestHelper() {
-
-    }
 
     public static void updateRequests(){
-        List<Case> requests = [SELECT Id, Vehicle__c, Equipment__c, Type, Status, Equipment__r.Current_Inventory__c, 
-        Equipment__r.Maintenance_Cycle__c FROM Case WHERE ID IN :Trigger.New LIMIT 300];
+        List<Case> requests = [SELECT Id, Vehicle__c, Equipment__c, Type, Status, Equipment__r.Maintenance_Cycle__c FROM Case WHERE ID IN :Trigger.New LIMIT 300];
 
         if(requests.size() > 0 ){
             List<Case> finalList = getMaintenanceRequests(requests);
@@ -18,7 +14,6 @@ public with sharing class MaintenanceRequestHelper {
         for(Case it : reqList){
             if(it.Type == 'Routine Maintenance' && it.Status == 'Closed'){
                 Case newRequest = new Case();
-                newRequest.Subject = 'Demo';
                 newRequest.Type = 'Routine Maintenance';
                 newRequest.Status = 'New';
                 newRequest.Description = 'New Rountine Maintenance';

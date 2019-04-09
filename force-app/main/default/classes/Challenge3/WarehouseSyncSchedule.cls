@@ -1,7 +1,4 @@
 global with sharing class WarehouseSyncSchedule implements Schedulable{
-    public WarehouseSyncSchedule() {
-
-    }
 
     global void execute(SchedulableContext context){
         WarehouseCalloutService.runWarehouseEquipmentSync();
